@@ -5,7 +5,11 @@ This game is made on HTML Canvas and used VanillaJS, HTML, CSS. This was my scho
 
 The game has 9 levels and increasing difficulty each level. It is classic "Break all the bricks and level up" mechanic. Anyone can just download and play it through browser(chrome recomended) and have benefit from source code.
 
-Here is some of image from interface;
+Here is some of images from interface;
+
+![EP 1](<user-interface/episode1_img.png>) 
+![EP 5](<user-interface/episode5_img.png>) 
+
 
 
 
