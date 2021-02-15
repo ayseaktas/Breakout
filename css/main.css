@@ -1,0 +1,242 @@
+* {
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family: gameFont, cursive;
+}
+
+@font-face{
+  font-family: gameFont;
+  src : url(PressStart2P-Regular.ttf);
+}
+
+html {
+  height:100%;
+  width:100%;
+}
+
+body {
+  align-content:space-around;
+  background-color:#202830;
+  color:#ffffff;
+  display:grid;
+  grid-template-columns:auto;
+  grid-template-rows:auto auto;
+  justify-items:center;
+  min-height:100%;
+  width:100%;
+}
+
+#container {
+  position: relative;
+}
+
+canvas {
+  background-color:#ffffff;
+  border:1px solid #000000;
+}
+
+.mainMenu{
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #f8d49d;
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+
+.pause{
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #f8d49d;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.pickLevel{
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #f8d49d;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.gameOver{
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #f8d49d;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.levelUpPage{
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #f8d49d;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.settings{
+  top: 0; left: 0; bottom: 0; right: 0;
+  background-color: #f8d49d;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+img{
+  margin: 5px;
+}
+
+.menuContent{
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+}
+
+button {
+  margin-top: 75px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #fff0f0;
+  border: 2px solid #b18597;
+  border-radius: 0.75em;
+  transform-style: preserve-3d;
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9c4d2;
+  border-radius: inherit;
+  box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button:hover {
+  background: #ffe9e9;
+  transform: translate(0, 0.25em);
+}
+
+button:hover:before {
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+button:active {
+  background: #ffe9e9;
+  transform: translate(0em, 0.75em);
+}
+
+button:active:before {
+  box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  transform: translate3d(0, 0, -1em);
+}
+
+div.polaroid {
+  width: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  float: left;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 40px;
+  margin-left: 15px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+}
+
+p.level{
+  font-size: 6px;
+  color: #000000;
+}
+
+
+p#score{
+  margin-top: 50px;
+  font-size: 70px;
+  color: #000000;
+}
+
+p.score{
+  margin-top: 50px;
+  color: #000000;
+}
+
+.slidecontainer {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-bottom: 10px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #b18597;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #b18597;
+  cursor: pointer;
+}
+
+.label{
+  float: left;
+  margin-bottom: 10px;
+}
+
+.sliders{
+  padding: inherit;
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 80px;
+}
+
+

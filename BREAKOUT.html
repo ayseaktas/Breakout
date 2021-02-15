@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Breakout Project</title>
+    <meta name = "viewport" content = "width=device-width">
+    <link href = "css/main.css" rel = "stylesheet" type = "text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+  </head>
+  <body>
+    <audio id="ballHit" src="audio/ballHit.mp3" ></audio>
+    <audio id="brickBreak" src="audio/brickBreak.mp3" ></audio>
+    <audio id="game_over_sound" src="audio/game_over_sound.mp3" ></audio>
+    <audio id="level_up_sound" src="audio/level_up_sound.mp3" ></audio>
+    <audio id="loseHeart" src="audio/loseHeart.mp3" ></audio>
+    <audio id="powerUp" src="audio/powerUp.mp3" ></audio>
+    <audio id="pushButton" src="audio/pushButton.mp3" ></audio>
+    <audio id="pushButton2" src="audio/pushButton2.mp3" ></audio>
+    <audio id="winState" src="audio/winState.mp3" ></audio>
+
+    <audio id="bgm1" src="audio/bgm1.mp3" ></audio>
+    <audio id="bgm2" src="audio/bgm2.mp3" ></audio>
+    <audio id="bgm3" src="audio/bgm3.mp3" ></audio>
+    <audio id="bgm4" src="audio/bgm4.mp3" ></audio>
+    <audio id="bgm5" src="audio/bgm5.mp3" ></audio>
+    <audio id="bgm6" src="audio/bgm6.mp3" ></audio>
+    
+    <div id="container">
+
+      <canvas id="ctx" width="448" height="544" ></canvas>
+      <!-- maın menu  -->
+      <div class="mainMenu">
+        <div class="menuContent">
+
+          <h1 style="margin-top: 40px; color: black;">BREAK'EM</h1>
+          <button id="newGame" onclick="newGame()">PLAY</button><br>
+          <button id="pickLevel" onclick="pickLevel()">SELECT LEVEL</button><br>
+          <button id="settings" style="width: 210px;" onclick="settings()" >SETTINGS</button>
+
+        </div>
+      </div>
+      <!-- pause menu  -->
+      <div class="pause">
+        <div class="menuContent">
+
+          <button id="continue" onclick="continue_func()">RESUME</button><br>
+          <button id="back2" onclick="back2()">MAIN MENU</button><br>
+          <button id="settings2" style="width: 195px;" onclick="settings()">SETTINGS</button>
+
+        </div>
+      </div>
+      <!-- settings -->
+      <div class="settings">
+        <div class="menuContent">
+
+          <div class="sliders">
+
+            <div class="slidecontainer">
+              <label class="label">music</label>
+              <input type="range" min="0" max="100" value="100" class="slider" id="music_range">
+            </div>
+  
+            <div class="slidecontainer">
+              <label class="label">sound</label>
+              <input type="range" min="0" max="100" value="100" class="slider" id="sound_range">
+            </div>
+
+          </div>
+
+          <button id="back" style="margin-top: 400px; margin-right: 200px; padding: 20px;" onclick="back()">BACK</button>
+
+        </div>
+      </div>
+      <!-- level up -->
+      <div class="levelUpPage">
+        <div class="menuContent">
+          <h3 style="margin-top: 150px; color: black;">CONGRATS!!</h3>
+          <h3 style="margin-top: 20px; color: black;">LET'S GO TO THE NEXT LEVEL</h3>
+          <button id="resume" onclick="resume()">CONTINUE</button>
+        </div>
+      </div>
+      <!-- game over  -->
+      <div class="gameOver">
+        <div class="menuContent">
+          <h1 id="win_state" style="margin-top: 10px; color: black; display: none;">YOU WON!!</h1>
+          <p class="score">SCORE:</p>
+          <p id="score"></P>
+          <button id="restart" style="display: initial;" onclick="restart()">PLAY AGAIN</button>
+          <button id="toMainMenu" onclick="mainMenu()">MAIN MENU</button>
+        </div>
+      </div>
+      <!-- pick level menu  -->
+      <div class="pickLevel">
+        <div class="menuContent">
+          <a id="level1" onclick="startLevel1()">
+            <div class="polaroid" style="background-color: #76428A;">
+              <img src="img/levels/l1.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">1.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level2" onclick="startLevel2()">
+            <div class="polaroid" style="background-color: #8C2929;">
+              <img src="img/levels/l2.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">2.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level3" onclick="startLevel3()">
+            <div class="polaroid" style="background-color: #639BFF;">
+              <img src="img/levels/l3.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">3.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level4" onclick="startLevel4()">
+            <div class="polaroid" style="background-color: #4B692F;">
+              <img src="img/levels/l4.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">4.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level5" onclick="startLevel5()">
+            <div class="polaroid" style="background-color: #9BADB7;">
+              <img src="img/levels/l5.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">5.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level6" onclick="startLevel6()">
+            <div class="polaroid" style="background-color: #D95763;">
+              <img src="img/levels/l6.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">6.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level7" onclick="startLevel7()">
+            <div class="polaroid" style="background-color: #3F3F74;">
+              <img src="img/levels/l7.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">7.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level8" onclick="startLevel8()">
+            <div class="polaroid" style="background-color: #663931;">
+              <img src="img/levels/l8.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">8.</p>
+              </div>
+            </div>
+          </a>
+          <a id="level9" onclick="startLevel9()">
+            <div class="polaroid" style="background-color: #DF7126;">
+              <img src="img/levels/l9.png"  width="100" height="100">
+              <div class="container">
+                <p class="level">9.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <p>movement: <- -> or a , d</p>
+    
+    <p>pause: esc</p>
+
+    <script type = "text/javascript" src = "js/main.js" ></script>
+  </body>
+</html>
